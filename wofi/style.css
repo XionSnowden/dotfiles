@@ -1,0 +1,41 @@
+#window {
+   font-size: 25px;
+   font-family: "NotoSerif";
+}
+
+#outer-box {
+   background-image: url("/home/xion/Pictures/Wallpapers/wofi.jpg");
+}
+
+#text {
+   color: #ffffff;
+   margin-up: 10px;
+   margin-bottom: 10px;
+}
+
+#input {
+   font-size: 25px;
+   color: #ffffff;
+   font-size: 20px;
+   text-shadow: 1px 1px 1px #0000ff;
+   margin: 10px;
+   background-color: black;
+   border: 1px solid black;
+}
+
+#unselected {
+   color: #ffffff;
+   font-size: 20px;
+   margin-left: 20px;
+}
+
+#entry:selected {
+   margin-left: 20px;
+   margin-right: 20px;
+   padding-left: 20px;
+   color: #ffffff;
+   font-size: 20px;
+   border-radius: 20px;
+   background-color: #1a1a1a;
+   border: 5px solid black;
+}
