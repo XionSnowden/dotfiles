@@ -66,8 +66,8 @@
 
   # Font Packages
   fonts.packages = with pkgs; [
-  font-awesome
-  noto-fonts
+     font-awesome
+     noto-fonts
   ];
 
   # Display Manager and Startup
@@ -83,20 +83,33 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  vim
-  lightdm
-  git
-  home-manager
+     vim
+     lightdm
+     git
+     home-manager
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
 
-  programs.thunar.enable = true;
-  programs.fish.enable = true;
+  #Need this for cursor on nvidia
   programs.hyprland = {
      enable = true;
+     nvidiaPatches = true;
      xwayland.enable = true;
   };
+  environment.sessionVariables = [
+     WLR_NO_HARDWARE_CURSORS = "1";
+     #Tell electron apps to use wayland
+     NIXOS_OZONE_WL = "1";
+  ];
+  hardware = [
+     #Opengl
+     opengl.enable = true;
+     nvidia.modesetting.enable = true;
+  ];
+
+  programs.thunar.enable = true;
+  programs.fish.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
