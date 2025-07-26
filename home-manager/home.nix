@@ -61,6 +61,7 @@
     ".config/nvim" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/nvim"; recursive = true; };
     ".config/kitty" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/kitty"; recursive = true; };
     ".config/waybar" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/waybar"; recursive = true; };
+    "Pictures/Wallpapers" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/Wallpapers"; recursive = true; };
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the # Nix store copy.
