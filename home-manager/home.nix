@@ -56,13 +56,13 @@
 
     # These are symlinks. Home Manager will create symlinks from the target to the source.
 
-    ".config/wofi" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/wofi"; recursive = true; };
-    ".config/fish" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/fish"; recursive = true; };
-    ".config/nvim" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/nvim"; recursive = true; };
-    ".config/kitty" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/kitty"; recursive = true; };
-    ".config/waybar" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/waybar"; recursive = true; };
-    ".config/hypr" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/hypr"; recursive = true; };
-    "Pictures/Wallpapers" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/Wallpapers"; recursive = true; };
+    ".config/wofi" = { source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/wofi"; recursive = true; };
+    ".config/fish" = { source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/fish"; recursive = true; };
+    ".config/nvim" = { source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim"; recursive = true; };
+    ".config/waybar" = { source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/waybar"; recursive = true; };
+    ".config/kitty" = { source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/kitty"; recursive = true; };
+    ".config/hypr" = { source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/hypr"; recursive = true; };
+    "Pictures/Wallpapers" = { source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/Wallpapers"; recursive = true; };
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the # Nix store copy.
