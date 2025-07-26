@@ -97,16 +97,16 @@
      nvidiaPatches = true;
      xwayland.enable = true;
   };
-  environment.sessionVariables = [
+  environment.sessionVariables = {
      WLR_NO_HARDWARE_CURSORS = "1";
      #Tell electron apps to use wayland
      NIXOS_OZONE_WL = "1";
-  ];
-  hardware = [
+  };
+  hardware = { 
      #Opengl
      opengl.enable = true;
      nvidia.modesetting.enable = true;
-  ];
+  };
 
   programs.thunar.enable = true;
   programs.fish.enable = true;
