@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -8,6 +8,12 @@
 
   # Don't change
   home.stateVersion = "24.11";
+  
+  #Allow specific unfree packages
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "unityhub"
+    "spotify"
+  ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -21,6 +27,7 @@
     neovim
     fish
     vesktop
+    unityhub
     spotify
     # vimPlugins.lazy-nvim # This is likely incorrect. lazy-nvim is a Neovim plugin manager, not a package itself.
                           # You'd manage Neovim plugins differently, often within your Neovim configuration.
@@ -56,12 +63,12 @@
 
     # These are symlinks. Home Manager will create symlinks from the target to the source.
 
-    ".config/wofi" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/wofi"; recursive = true; };
-    ".config/fish" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/fish"; recursive = true; };
-    ".config/nvim" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/nvim"; recursive = true; };
-    ".config/kitty" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/kitty"; recursive = true; };
-    ".config/waybar" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/waybar"; recursive = true; };
-    "Pictures/Wallpapers" = { source = config.lib.file.mkOutOfStoreSymlink "home/xion/dotfiles/Wallpapers"; recursive = true; };
+    ".config/wofi" = { source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/wofi"; recursive = true; };
+    ".config/fish" = { source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/fish"; recursive = true; };
+    ".config/nvim" = { source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim"; recursive = true; };
+    ".config/waybar" = { source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/waybar"; recursive = true; };
+    ".config/kitty" = { source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/kitty"; recursive = true; };
+    ".config/hypr" = { source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/hypr"; recursive = true; };
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the # Nix store copy.
