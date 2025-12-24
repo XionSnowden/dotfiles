@@ -16,20 +16,20 @@
     playerctl cliphist wl-clipboard hyprpicker tesseract
 
     # --- Development & Build Tools ---
-    cmake meson npm typescript gjs gobject-introspection glib
+    cmake meson typescript gjs gobject-introspection glib
     tinyxml2 dart-sass
 
     # --- Wayland / Graphics Utilities ---
     rofi-wayland brightnessctl swww grim swappy wf-recorder gradience matugen webp-pixbuf-loader
 
     # --- Libraries & Theming ---
-    gtk3 gtk-layer-shell libdbusmenu-gtk3 libpulse libsoup_3 libnotify
-    gtkmm3 gtksourceview3 gtksourceviewmm cairomm qt5ct qt5.qtwayland
+    gtk3 gtk-layer-shell libdbusmenu-gtk3 libpulseaudio libsoup_3 libnotify
+    gtkmm3 gtksourceview3 gtksourceviewmm cairomm libsForQt5.qt5ct qt5.qtwayland
     adw-gtk3 bibata-cursors
 
     # --- Fonts ---
-    readex-pro gabarito rubik material-symbols noto-fonts-emoji noto-fonts-cjk-sans
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "SpaceMono" ]; })
+    rubik material-symbols noto-fonts-emoji noto-fonts-cjk-sans
+    nerd-fonts.jetbrains-mono nerd-fonts.space-mono
 
     # --- Python Environment ---
     (python3.withPackages (ps: with ps; [
