@@ -13,11 +13,16 @@
   outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import inputs.nixpkgs {
+        inherit system;
+	config.allowUnfree = true;
+      };
+
     in
     {
       homeConfigurations."xion" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+	
 
 
         # Specify your home configuration modules here, for example,
