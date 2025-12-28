@@ -7,7 +7,7 @@
 
   home.packages = with pkgs; [
     # --- Desktop & GUI Apps ---
-    hyprpaper waybar xfce.thunar kitty ghostty firefox
+    kitty ghostty firefox
     neovim vesktop spotify wlogout cava pavucontrol blueberry yad
     nodejs_24 kdePackages.kdeconnect-kde
 
