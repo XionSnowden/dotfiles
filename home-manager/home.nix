@@ -117,9 +117,6 @@
 
   home.file = {
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/xion/dotfiles/nvim";
-    ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "/home/xion/dotfiles/kitty";
-    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "/home/xion/dotfiles/waybar";
-    "Pictures/Wallpapers".source = config.lib.file.mkOutOfStoreSymlink "/home/xion/dotfiles/Wallpapers";
   };
 
   home.sessionVariables = {
