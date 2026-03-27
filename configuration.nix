@@ -2,8 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
-
+{ nixos-config, pkgs, ... }:
 
 {
   imports =
@@ -70,33 +69,36 @@
   noto-fonts
   ];
 
-  # Display Manager and Startup
-  services.xserver.enable = true;
-
-  services.xserver.displayManager.lightdm = {
-    enable = true;
-    greeters.gtk.enable = true; # Example of a simple greeter
-  };
-
-  services.xserver.displayManager.defaultSession = "hyprland";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+  xorg.lndir
   vim
-  lightdm
   git
   home-manager
+  networkmanagerapplet
+  spotify
+  vesktop
+  gnome-shell
+
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
 
-  programs.thunar.enable = true;
+  # Display Manager and Startup
   programs.fish.enable = true;
-  programs.hyprland = {
-     enable = true;
-     xwayland.enable = true;
-  };
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
+  # To disable installing GNOME's suite of applications
+  # and only be left with GNOME shell.
+  services.gnome.core-apps.enable = false;
+  services.gnome.core-developer-tools.enable = false;
+  services.gnome.games.enable = false;
+  environment.gnome.excludePackages = with pkgs; [ gnome-tour gnome-user-docs ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
